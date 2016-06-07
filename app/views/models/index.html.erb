@@ -1,9 +1,19 @@
-<% make = Make.where(webmotors_id: params[:webmotors_make_id])[0] %>
-<% models = Model.where(make_id: make.id) %>
-
-<a href="/"><< Voltar</a>
-<ul>
-  <% models.each do |model| %>
-    <li><%= model.name %></li>
+<ol class="breadcrumb">
+  <li><a href="/">Home</a></li>
+  <li class="active">Modelos</li>
+</ol>
+<table class="table table-striped table-hover table-bordered">
+	<caption>Modelos de <%= @name%></caption>
+	<thead>
+		<tr>
+			<th>Nome</th>
+		</tr>
+	</thead>
+	<tbody>
+  <% @models.each do |model| %>
+		<tr>
+			<td><%= model.name %></td>
+		</tr>
   <% end %>
-</ul>
+	</tbody>
+</table>
